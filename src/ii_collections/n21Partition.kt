@@ -10,7 +10,18 @@ fun example8() {
     negative == listOf(-4, -11)
 }
 
+fun Customer.countDeliveredOrders(): Int {
+    return this.orders.count { it.isDelivered }
+}
+
+fun Customer.countUnDeliveredOrders(): Int {
+    return this.orders.count { !it.isDelivered }
+}
+
 fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set<Customer> {
     // Return customers who have more undelivered orders than delivered
-    todoCollectionTask()
+    //todoCollectionTask()
+    return this.customers.partition {
+        it.countUnDeliveredOrders() > it.countDeliveredOrders()
+    }.first.toSet()
 }

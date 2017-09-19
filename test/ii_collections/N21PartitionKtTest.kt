@@ -11,3 +11,7 @@ class N21PartitionKtTest {
         assertEquals(setOf(customers[reka]), shop.getCustomersWithMoreUndeliveredOrdersThanDelivered())
     }
 }
+
+fun main(args: Array<String>) {
+    shop.getCustomersWithMoreUndeliveredOrdersThanDelivered()
+}
