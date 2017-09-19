@@ -5,6 +5,6 @@ import org.junit.Test
 
 class N10ObjectExpressionsKtTest {
     @Test fun testSort() {
-        assertEquals(listOf(5, 2, 1), task10())
+        assertEquals(listOf(5, 2, 1, -1), task10())
     }
 }
