@@ -24,6 +24,7 @@ fun Shop.getSetOfProductsOrderedByEveryCustomer(): Set<Product> {
 fun main(args: Array<String>) {
     val aFisrtSet = setOf(1, 2, 4)
     val aSecondSet = setOf(0, 2, 3)
+
     val aThirdSet = setOf(2)
     val allItems = aFisrtSet.plus(aSecondSet).plus(aThirdSet)
     val allSets = setOf(aFisrtSet, aSecondSet, aThirdSet)
@@ -32,9 +33,21 @@ fun main(args: Array<String>) {
     println("aFisrtSet.intersect(aSecondSet).intersect(aThirdSet): " + aFisrtSet.intersect(aSecondSet).intersect(aThirdSet) + "")
 
     //it starts with all elements
-    val res = allSets.fold(allItems, {
+    val resfold = allSets.fold(allItems, {
         orderedByAll, aSet ->
         orderedByAll.intersect(aSet)
     })
-    println("res :" + res)
+    println("resfold :" + resfold)
+
+    val anEmtySet = emptySet<Int>()
+    val allItems2 = allItems.plus(anEmtySet)
+    val allSets2 = setOf(aFisrtSet, aSecondSet, aThirdSet, anEmtySet)
+    println("aFisrtSet.intersect(aSecondSet).intersect(aThirdSet).intersect(anEmtySet): " + aFisrtSet.intersect(aSecondSet).intersect(aThirdSet).intersect(anEmtySet) + "")
+
+    //it starts with all elements
+    val resfold2 = allSets2.fold(allItems2, {
+        orderedByAll, aSet ->
+        orderedByAll.intersect(aSet)
+    })
+    println("resfold2 :" + resfold2)
 }
