@@ -13,4 +13,16 @@ class N39HtmlBuildersKtTest {
         val result = renderProductTable()
         assertTrue("Product table should be colored", result.contains("bgcolor"))
     }
+
+    @Test fun productTableIsColoredAlternatively() {
+        val result = renderProductTable()
+        val colors : Map<String, List<String>> =
+        result.split("bgcolor")
+        .filter { it.contains("#") }
+        .map {
+            it.substringAfter("#").substring(0, 6)
+        }.groupBy { it }
+
+        assertTrue("Product table cell should alternate colors", colors["dce4ff"]!!.size == colors["eff2ff"]!!.size)
+    }
 }
