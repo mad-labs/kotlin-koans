@@ -1,3 +1,5 @@
+package zplayground
+
 fun main(args: Array<String>) {
     val arrayDimension : List<Long> = tokenizedInput({ it.toLong() })
     val numbers : List<Long> = tokenizedInput({ it.toLong() })
